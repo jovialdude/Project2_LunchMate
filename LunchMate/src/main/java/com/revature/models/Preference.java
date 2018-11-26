@@ -1,4 +1,11 @@
-//imports
+package com.revature.models;
+
+import java.sql.Date;
+
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
 
 
 //	are we having a table for each preference???
@@ -13,6 +20,7 @@ private String preferenceName;
 
 //foreign key
 //	@JoinColumn("Posting_ID")
+//	@ForeignKey
 private String postingID;
 
 
