@@ -36,7 +36,7 @@ public class UserDaoImp implements UserDao {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		int pk = (int) s.save(u);
-		u.setId(pk);
+		u.setUserId(pk);
 		tx.commit();
 		s.close();
 	}

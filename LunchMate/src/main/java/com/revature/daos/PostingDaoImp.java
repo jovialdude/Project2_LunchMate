@@ -35,7 +35,7 @@ public class PostingDaoImp implements PostingDao {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		int pk = (int) s.save(p);
-		p.setId(pk);
+		p.setPostingId(pk);
 		tx.commit();
 		s.close();
 	}
