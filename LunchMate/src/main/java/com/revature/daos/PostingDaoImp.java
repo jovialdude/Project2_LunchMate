@@ -7,41 +7,41 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.revature.Util.HibernateUtil;
-import com.revature.models.PostingServiceLayer;
+import com.revature.models.Posting;
 
 public class PostingDaoImp implements PostingDao {
 
 	@Override
-	public List<PostingServiceLayer> getAllPosting() {
+	public List<Posting> getAllPosting() {
 		Session s = HibernateUtil.getSession();
-		List<PostingServiceLayer> postings = s.createQuery("from POSTING_INFO", PostingServiceLayer.class).list();
+		List<Posting> postings = s.createQuery("from POSTING_INFO", Posting.class).list();
 		s.close();
 		return postings;
 	}
 
 	@Override
-	public PostingServiceLayer getPosting(int id) {
+	public Posting getPosting(int id) {
 		Session s = HibernateUtil.getSession();
 		Query q = s.getNamedQuery("Posting.getByIdQuery");
 		q.setParameter("idVar", id);
-		PostingServiceLayer p = (PostingServiceLayer) q.getSingleResult();
+		Posting p = (Posting) q.getSingleResult();
 		s.close();
 		return p;
 	}
 
 	@Override
-	public void createPosting(PostingServiceLayer p) {
+	public void createPosting(Posting p) {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		int pk = (int) s.save(p);
-		p.setPostingId(pk);
+		p.setId(pk);
 		tx.commit();
 		s.close();
 	}
 
 	@Override
-	public void updatePosting(PostingServiceLayer p) {
+	public void updatePosting(Posting p) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		s.update(p);
@@ -53,7 +53,7 @@ public class PostingDaoImp implements PostingDao {
 	public boolean deletePosting(int id) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx =s.beginTransaction();
-		PostingServiceLayer p = s.get(PostingServiceLayer.class, id);
+		Posting p = s.get(Posting.class, id);
 		if(p!=null) {
 			s.delete(p);
 			tx.commit();

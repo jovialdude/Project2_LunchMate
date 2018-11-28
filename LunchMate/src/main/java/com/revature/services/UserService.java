@@ -4,31 +4,31 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.revature.models.UserServiceLayer;
+import com.revature.models.User;
 
 public class UserService {
 
-	public List<UserServiceLayer> findAllUsers() {
+	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public UserServiceLayer findUserById(Integer id) {
+	public User findUserById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public UserServiceLayer addUser(@Valid UserServiceLayer u) {
+	public User addUser(@Valid User u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public UserServiceLayer updateUser(UserServiceLayer u) {
+	public User updateUser(User u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public UserServiceLayer deleteUser(UserServiceLayer user) {
+	public User deleteUser(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}

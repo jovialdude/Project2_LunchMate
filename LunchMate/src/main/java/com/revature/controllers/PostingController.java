@@ -34,35 +34,35 @@ PostingService postingService;
 
 
 @GetMapping
-public List<PostingServiceLayer> findAllPostings()
+public List<Posting> findAllPostings()
 {	return postingService.findAllPostings();	};
 
 
 @GetMapping("/{id}")
-public PostingServiceLayer findPostingById(@PathVariable("id") Integer id)
+public Posting findPostingById(@PathVariable("id") Integer id)
 {	return postingService.findPostingById(id);	}
 
 
 
 @PostMapping
-public PostingServiceLayer addPosting(@Valid @RequestBody PostingServiceLayer p)
+public Posting addPosting(@Valid @RequestBody Posting p)
 {	return postingService.addPosting(p);	}
 
 
 
 @PutMapping("/{id}")
-public PostingServiceLayer updatePosting(
-	@Valid @PathVariable("id") Integer id, @RequestBody PostingServiceLayer p){
+public Posting updatePosting(
+	@Valid @PathVariable("id") Integer id, @RequestBody Posting p){
 //	what are we trying to update here?
 //	more implementation details needed?
-p.setPostingId(id);
+p.setId(id);
 return postingService.updatePosting(p);	}
 
 
 @DeleteMapping("/{id}")
-public PostingServiceLayer deletePosting(@PathVariable Integer id){
-PostingServiceLayer posting = new PostingServiceLayer();
-posting.setPostingId(id);
+public Posting deletePosting(@PathVariable Integer id){
+Posting posting = new Posting();
+posting.setId(id);
 return postingService.deletePosting(posting);	}
 
 

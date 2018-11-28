@@ -7,42 +7,42 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.revature.Util.HibernateUtil;
-import com.revature.models.UserServiceLayer;
+import com.revature.models.User;
 
 public class UserDaoImp implements UserDao {
 
 	@Override
-	public UserServiceLayer getUser(int id) {
+	public User getUser(int id) {
 		Session s = HibernateUtil.getSession();
 		Query q = s.getNamedQuery("User.getByIdQuery");
 		q.setParameter("idVar", id);
-		UserServiceLayer u = (UserServiceLayer) q.getSingleResult();
+		User u = (User) q.getSingleResult();
 		s.close();
 		return u;
 	}
 
 	@Override
-	public List<UserServiceLayer> getAllUser() {
+	public List<User> getAllUser() {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
-		List<UserServiceLayer> users = s.createQuery("from USER_INFO", UserServiceLayer.class).list();
+		List<User> users = s.createQuery("from USER_INFO", User.class).list();
 		s.close();
 		return users;
 	}
 
 	@Override
-	public void createUser(UserServiceLayer u) {
+	public void createUser(User u) {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		int pk = (int) s.save(u);
-		u.setUserId(pk);
+		u.setId(pk);
 		tx.commit();
 		s.close();
 	}
 
 	@Override
-	public void updateUser(UserServiceLayer u) {
+	public void updateUser(User u) {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
@@ -57,7 +57,7 @@ public class UserDaoImp implements UserDao {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
-		UserServiceLayer u = s.get(UserServiceLayer.class, id);
+		User u = s.get(User.class, id);
 		if (u != null) {
 			s.delete(u);
 			tx.commit();
@@ -75,7 +75,7 @@ public class UserDaoImp implements UserDao {
 		Query q = s.getNamedQuery("User.getLoginInfo");
 		q.setParameter("username", username);
 		q.setParameter("password", password);
-		UserServiceLayer u = (UserServiceLayer) q.getSingleResult();
+		User u = (User) q.getSingleResult();
 		if (u == null)
 			return false;
 		return true;

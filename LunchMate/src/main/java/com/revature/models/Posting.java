@@ -48,6 +48,8 @@ public class Posting {
 	private Integer priceLimit;
 
 	private String pref;
+	
+	//We need a column with an ID for the user who origionally posted this.
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "POSTING_USERS", joinColumns = { @JoinColumn(name = "POSTING_ID") }, inverseJoinColumns = {
