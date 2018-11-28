@@ -2,31 +2,31 @@ package com.revature.services;
 
 import java.util.List;
 
-import com.revature.models.Posting;
+import com.revature.models.PostingServiceLayer;
 
 public class PostingService {
 
-	public List<Posting> findAllPostings() {
+	public List<PostingServiceLayer> findAllPostings() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Posting addPosting(Posting p) {
+	public PostingServiceLayer addPosting(PostingServiceLayer p) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Posting deletePosting(Posting posting) {
+	public PostingServiceLayer deletePosting(PostingServiceLayer posting) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Posting findPostingById(Integer id) {
+	public PostingServiceLayer findPostingById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Posting updatePosting(Posting p) {
+	public PostingServiceLayer updatePosting(PostingServiceLayer p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

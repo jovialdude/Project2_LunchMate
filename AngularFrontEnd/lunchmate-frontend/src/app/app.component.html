@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<head>
+
+</head>
+
+<div *ngIf="this.login.isLoggedIn == false">
+  <div style="text-align:center">
+    <h1>
+      Facebook Login
+    </h1>
+  
+    <button type="button" class="btn" (click)="submitLogin();">Login with facebook</button>
+  </div>
+</div>
+
+<div *ngIf="this.login.isLoggedIn == true">
+
+  <nav>
+    <a routerLink="/all-postings">Postings</a>
+    <span>  </span>
+    <a routerLink="/create-posting">Create New Posting</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+
+
+
+

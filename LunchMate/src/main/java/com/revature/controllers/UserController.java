@@ -31,30 +31,30 @@ UserService userService;
 
 
 	@GetMapping
-public List<User> findAllUsers(){
+public List<UserServiceLayer> findAllUsers(){
 		return userService.findAllUsers();
 	}
 
 	@GetMapping("/{id}")
-public User findUserById(@PathVariable("id") Integer id) {
+public UserServiceLayer findUserById(@PathVariable("id") Integer id) {
 		return userService.findUserById(id);
 	}
 
 	@PostMapping
-public User addUser(@Valid @RequestBody User u) {
+public UserServiceLayer addUser(@Valid @RequestBody UserServiceLayer u) {
 		return userService.addUser(u);
 	}
 
 	@PutMapping("/{id}")
-public User updateUser(@Valid @PathVariable("id") Integer id,
-@RequestBody User u)	{
+public UserServiceLayer updateUser(@Valid @PathVariable("id") Integer id,
+@RequestBody UserServiceLayer u)	{
 		u.setUserId(id);
 		return userService.updateUser(u);
 	}
 
 	@DeleteMapping("/{id}")
-public User deleteUser(@PathVariable Integer id) {
-		User user = new User();
+public UserServiceLayer deleteUser(@PathVariable Integer id) {
+		UserServiceLayer user = new UserServiceLayer();
 		user.setUserId(id);
 		return userService.deleteUser(user);
 	}

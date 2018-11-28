@@ -1,101 +1,176 @@
 package com.revature.models;
 
-
-import java.sql.Date;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
-
-
-
-
+@NamedQueries({ @NamedQuery(name = "User.getByIdQuery", query = "from User where id=:idVar"),
+								@NamedQuery(name="User.getLoginInfo", query= "from User where username =:username AND password =:password")
+							})
 
 @Component
-//	@Entity
-//	@Table(name="Users")
-public class User	{
+@Entity
+@Table(name = "USER_INFO")
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSequence")
+	@SequenceGenerator(name = "userSequence", allocationSize = 1, sequenceName = "SQ_USER_PK")
+	@Column(name = "U_ID")
+	private int id;
 
-//	@Column(name="User_ID")
-@Id
-//@NotNull
-private int userId;
+	@NotNull
+	@Email
+	@Column(unique = true, name = "U_USERNAME")
+	private String username;
 
-//	not sure how a phone number would be validated
-//	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
-private String phoneNumber;
+	@NotNull
+	@Column
+	private transient String password;
+//	
+//	@Column
+//	private String salt;
+	@Column(name = "U_FIRSTNAME")
+	private String firstname;
 
-//	is FB providing this?
-//	@Email
-//	@Column(unique=true)
-private String email;
+	@Column(name = "U_LASTNAME")
+	private String lastname;
 
-private String FaceBookId;
+	@Column(name = "U_PHONE")
+//	@Digits
+	private Long phoneNumber;
 
-private String FaceBookToken;
+	public User() {
+		super();
+	}
 
-public User() {
-	super();
-	// TODO Auto-generated constructor stub
-}
+	//
+	// constructor to send to the database
+	//
+	public User(@Email String username, String password, String firstname, String lastname) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
 
-public User(int userId, String phoneNumber, String email, String faceBookId, String faceBookToken) {
-	super();
-	this.userId = userId;
-	this.phoneNumber = phoneNumber;
-	this.email = email;
-	FaceBookId = faceBookId;
-	FaceBookToken = faceBookToken;
-}
+	public User(int id, @Email String username, String password, String firstname, String lastname) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
 
-public int getUserId() {
-	return userId;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setUserId(int userId) {
-	this.userId = userId;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public String getPhoneNumber() {
-	return phoneNumber;
-}
+	public String getUsername() {
+		return username;
+	}
 
-public void setPhoneNumber(String phoneNumber) {
-	this.phoneNumber = phoneNumber;
-}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-public String getEmail() {
-	return email;
-}
+	public String getPassword() {
+		return password;
+	}
 
-public void setEmail(String email) {
-	this.email = email;
-}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-public String getFaceBookId() {
-	return FaceBookId;
-}
+	public String getFirstname() {
+		return firstname;
+	}
 
-public void setFaceBookId(String faceBookId) {
-	FaceBookId = faceBookId;
-}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 
-public String getFaceBookToken() {
-	return FaceBookToken;
-}
+	public String getLastname() {
+		return lastname;
+	}
 
-public void setFaceBookToken(String faceBookToken) {
-	FaceBookToken = faceBookToken;
-}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
 
-@Override
-public String toString() {
-	return "User [userId=" + userId + ", phoneNumber=" + phoneNumber + ", email=" + email + ", FaceBookId=" + FaceBookId
-			+ ", FaceBookToken=" + FaceBookToken + "]";
-}
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
 
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
+		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (firstname == null) {
+			if (other.firstname != null)
+				return false;
+		} else if (!firstname.equals(other.firstname))
+			return false;
+		if (id != other.id)
+			return false;
+		if (lastname == null) {
+			if (other.lastname != null)
+				return false;
+		} else if (!lastname.equals(other.lastname))
+			return false;
+		if (phoneNumber == null) {
+			if (other.phoneNumber != null)
+				return false;
+		} else if (!phoneNumber.equals(other.phoneNumber))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", phoneNumber=" + phoneNumber + "]";
+	}
 
 }
