@@ -19,6 +19,7 @@ import com.revature.services.UserService;
 
 
 @Controller
+@RequestMapping("login")
 public class HomeController {
 
 	@RequestMapping(method=RequestMethod.GET, value="/home")
@@ -30,7 +31,7 @@ public String getHomePage()
 	public String goLogin()
 	{	return "Login";	}
 
-	@PostMapping("/login")
+	@PostMapping
 	public User getLogin(@RequestBody User u)
 	{	
 		List<User> user = new UserService().findAllUsers();
