@@ -2,8 +2,11 @@ package com.revature.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.revature.models.Posting;
 
+@Service
 public class PostingService {
 
 	public List<Posting> findAllPostings() {
