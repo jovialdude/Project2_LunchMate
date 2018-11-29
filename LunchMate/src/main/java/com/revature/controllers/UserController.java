@@ -17,11 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.*;
 import com.revature.services.*;
 
-
-
-
-
-
 @RestController
 @RequestMapping("/users")
 public class UserController	{
@@ -31,32 +26,32 @@ UserService userService;
 
 
 	@GetMapping
-public List<UserServiceLayer> findAllUsers(){
+public List<User> findAllUsers(){
 		return userService.findAllUsers();
 	}
 
 	@GetMapping("/{id}")
-public UserServiceLayer findUserById(@PathVariable("id") Integer id) {
+public User findUserById(@PathVariable("id") Integer id) {
 		return userService.findUserById(id);
 	}
 
 	@PostMapping
-public UserServiceLayer addUser(@Valid @RequestBody UserServiceLayer u) {
-		return userService.addUser(u);
+public void addUser(@Valid @RequestBody User u) {
+		userService.addUser(u);
 	}
 
 	@PutMapping("/{id}")
-public UserServiceLayer updateUser(@Valid @PathVariable("id") Integer id,
-@RequestBody UserServiceLayer u)	{
-		u.setUserId(id);
-		return userService.updateUser(u);
+public void updateUser(@Valid @PathVariable("id") Integer id,
+@RequestBody User u)	{
+		u.setId(id);
+		userService.updateUser(u);
 	}
 
 	@DeleteMapping("/{id}")
-public UserServiceLayer deleteUser(@PathVariable Integer id) {
-		UserServiceLayer user = new UserServiceLayer();
-		user.setUserId(id);
-		return userService.deleteUser(user);
+public boolean deleteUser(@PathVariable Integer id) {
+		User user = new User();
+		user.setId(id);
+		return userService.deleteUser(id);
 	}
 
  
