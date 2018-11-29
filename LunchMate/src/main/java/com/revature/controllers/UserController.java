@@ -36,12 +36,12 @@ public User findUserById(@PathVariable("id") Integer id) {
 	}
 
 	@PostMapping
-public void addUser(@Valid @RequestBody User u) {
+public void addUser(@RequestBody User u) {
 		userService.addUser(u);
 	}
 
 	@PutMapping("/{id}")
-public void updateUser(@Valid @PathVariable("id") Integer id,
+public void updateUser(@PathVariable("id") Integer id,
 @RequestBody User u)	{
 		u.setId(id);
 		userService.updateUser(u);
