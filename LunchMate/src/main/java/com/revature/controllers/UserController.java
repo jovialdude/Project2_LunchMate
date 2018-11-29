@@ -36,23 +36,39 @@ public User findUserById(@PathVariable("id") Integer id) {
 	}
 
 	@PostMapping
-public User addUser(@Valid @RequestBody User u) {
-		return userService.addUser(u);
+public void addUser(@Valid @RequestBody User u) {
+		userService.addUser(u);
 	}
 
 	@PutMapping("/{id}")
-public User updateUser(@Valid @PathVariable("id") Integer id,
+public void updateUser(@Valid @PathVariable("id") Integer id,
 @RequestBody User u)	{
 		u.setId(id);
-		return userService.updateUser(u);
+		userService.updateUser(u);
 	}
 
 	@DeleteMapping("/{id}")
-public User deleteUser(@PathVariable Integer id) {
+public boolean deleteUser(@PathVariable Integer id) {
 		User user = new User();
 		user.setId(id);
-		return userService.deleteUser(user);
+		return userService.deleteUser(id);
 	}
 
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

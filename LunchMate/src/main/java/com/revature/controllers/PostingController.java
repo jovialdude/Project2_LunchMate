@@ -45,25 +45,25 @@ public Posting findPostingById(@PathVariable("id") Integer id)
 
 
 @PostMapping
-public Posting addPosting(@Valid @RequestBody Posting p)
-{	return postingService.addPosting(p);	}
+public void addPosting(@Valid @RequestBody Posting p)
+{	postingService.addPosting(p);	}
 
 
 
 @PutMapping("/{id}")
-public Posting updatePosting(
+public void updatePosting(
 	@Valid @PathVariable("id") Integer id, @RequestBody Posting p){
 //	what are we trying to update here?
 //	more implementation details needed?
 p.setId(id);
-return postingService.updatePosting(p);	}
+postingService.updatePosting(p);	}
 
 
 @DeleteMapping("/{id}")
-public Posting deletePosting(@PathVariable Integer id){
+public boolean deletePosting(@PathVariable int id){
 Posting posting = new Posting();
 posting.setId(id);
-return postingService.deletePosting(posting);	}
+return postingService.deletePosting(id);	}
 
 
 
