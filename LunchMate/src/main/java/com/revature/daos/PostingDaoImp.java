@@ -14,7 +14,7 @@ public class PostingDaoImp implements PostingDao {
 	@Override
 	public List<Posting> getAllPosting() {
 		Session s = HibernateUtil.getSession();
-		List<Posting> postings = s.createQuery("from POSTING_INFO", Posting.class).list();
+		List<Posting> postings = s.createQuery("from Posting", Posting.class).list();
 		s.close();
 		return postings;
 	}

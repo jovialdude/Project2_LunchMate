@@ -4,13 +4,7 @@
 </head>
 
 <div *ngIf="this.login.isLoggedIn == false">
-  <div style="text-align:center">
-    <h1>
-      Facebook Login
-    </h1>
-  
-    <button type="button" class="btn" (click)="submitLogin();">Login with facebook</button>
-  </div>
+      <app-login-page></app-login-page>
 </div>
 
 <div *ngIf="this.login.isLoggedIn == true">
