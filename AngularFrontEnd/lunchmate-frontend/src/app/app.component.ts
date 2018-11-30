@@ -18,10 +18,4 @@ export class AppComponent implements OnInit{
   ngOnInit(){
 
   }
-
-  submitLogin()
-  {
-    this.login.isLoggedIn = true;
-    console.log("" + this.login.loggedInuser.username + " is logged in now");
-  }
 }

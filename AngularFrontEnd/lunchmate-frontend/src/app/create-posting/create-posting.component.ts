@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 //import { } from 'googlemaps';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,8 +11,9 @@ declare const google:any;
 })
 export class CreatePostingComponent implements OnInit {
 
-  ngOnInit()
-  {
+  constructor() { }
 
+  ngOnInit() {
+    
   }
 }

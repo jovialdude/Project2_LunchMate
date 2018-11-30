@@ -58,7 +58,7 @@ export class GoogleMapsFeaturesComponent  implements OnInit {
          c.setRadius(2000);
          console.log(c.getCenter());
      
-         var request = {location: infoW.getPosition(), radius : 500, type: 'restaurant'};
+         var request = {location: infoW.getPosition(), radius : 2000, type: 'restaurant'};
      
          s.nearbySearch(request, (results, status) => {
           if (status == google.maps.places.PlacesServiceStatus.OK) {

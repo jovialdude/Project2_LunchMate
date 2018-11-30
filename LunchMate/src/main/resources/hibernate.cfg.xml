@@ -4,18 +4,18 @@
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@java-08oct18.cjk8aacizjxv.us-east-1.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@datn-revature.curj437axptx.us-east-2.rds.amazonaws.com:1521:ORCL</property>
 		<property name="hibernate.connection.username">Project2_LunchMate</property>
 		<property name="hibernate.connection.password">p4ssw0rd</property>
 
 		<property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
 
 		<mapping class="com.revature.models.User" />
-		<mapping class="com.revature.modesl.Posting" />
+		<mapping class="com.revature.models.Posting" />
 <!-- 		<mapping class="com.revature.models.Preference" />
  -->
 

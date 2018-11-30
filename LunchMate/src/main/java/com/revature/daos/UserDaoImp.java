@@ -25,7 +25,8 @@ public class UserDaoImp implements UserDao {
 	public List<User> getAllUser() {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
-		List<User> users = s.createQuery("from USER_INFO", User.class).list();
+		List<User> users = s.createQuery("from User", User.class).list();
+		System.out.println("getAllUsers");
 		s.close();
 		return users;
 	}

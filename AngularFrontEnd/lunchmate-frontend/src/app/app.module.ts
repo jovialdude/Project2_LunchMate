@@ -9,6 +9,7 @@ import { CreatePostingComponent } from './create-posting/create-posting.componen
 
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsFeaturesComponent } from './google-maps-features/google-maps-features.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GoogleMapsFeaturesComponent } from './google-maps-features/google-maps-
     SeeallpostingsComponent,
     PostingsComponent,
     CreatePostingComponent,
-    GoogleMapsFeaturesComponent
+    GoogleMapsFeaturesComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

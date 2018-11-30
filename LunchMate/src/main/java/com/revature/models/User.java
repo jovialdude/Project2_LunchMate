@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "USER_INFO")
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSequence")
 	@SequenceGenerator(name = "userSequence", allocationSize = 1, sequenceName = "SQ_USER_PK")
@@ -34,8 +35,8 @@ public class User {
 	private String username;
 
 	@NotNull
-	@Column
-	private transient String password;
+	@Column(name = "U_PASSWORD")
+	private String password;
 //	
 //	@Column
 //	private String salt;
@@ -64,13 +65,14 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public User(int id, @Email String username, String password, String firstname, String lastname) {
+	public User(int id, String password, String firstname, String lastname, Long pn, @Email String username) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.phoneNumber = pn;
 	}
 
 	public int getId() {
