@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,13 +21,13 @@ import com.revature.models.User;
 import com.revature.services.UserService;
 
 
-
 @RestController
 @RequestMapping("login")
 public class HomeController {
 
 	UserDao udao = new UserDaoImp();
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping
 	public User getLogin(@RequestBody User u)
 	{	
