@@ -1,18 +1,18 @@
 export class User{
-    id : number = -1;
-    name : String = "no name";
-    username : String = "username";
+    id : number = 22;
+    firstname : String = "no name";
+    lastname : String = "no name";
+    username : String = "username@email.com";
     password : String = "password";
-    phoneNumber : String = "123-456-7890";
-    email : String = "dummy@email.com";
+    phoneNumber : number = 1234567890;
 
-    constructor(i : number, n : String, u : String, p : String, pn : String, e : String)
+    constructor(i : number, n : String, ln : String, u : String, p : String, pn : number)
     {
         this.id = i;
-        this.name = n;
+        this.firstname = n;
+        this.lastname = ln;
         this.username = u;
         this.password = p;
         this.phoneNumber = pn;
-        this.email = e;
     }
 }

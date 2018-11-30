@@ -4,9 +4,11 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { AppComponent } from '../app/app.component';
 import { SeeallpostingsComponent as SeeAllPostings } from '../app/seeallpostings/seeallpostings.component'
 import { CreatePostingComponent } from "../app/create-posting/create-posting.component"
+import { GoogleMapsFeaturesComponent } from './google-maps-features/google-maps-features.component';
 
 const routes : Routes = [{path : 'all-postings', component : SeeAllPostings},
                           {path : 'create-posting', component : CreatePostingComponent},
+                          {path : 'maps', component : GoogleMapsFeaturesComponent},
                           { path: '', redirectTo: "/all-postings", pathMatch: 'full' }];
 
 @NgModule({
