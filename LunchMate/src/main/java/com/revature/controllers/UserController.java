@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.*;
 import com.revature.services.*;
 
-@CrossOrigin(origins = "http://lunchmate.s3-website-us-east-1.amazonaws.com")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/users")
 public class UserController	{
