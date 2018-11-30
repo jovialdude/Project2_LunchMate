@@ -8,13 +8,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { CreatePostingComponent } from './create-posting/create-posting.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleMapsFeaturesComponent } from './google-maps-features/google-maps-features.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SeeallpostingsComponent,
     PostingsComponent,
-    CreatePostingComponent
+    CreatePostingComponent,
+    GoogleMapsFeaturesComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

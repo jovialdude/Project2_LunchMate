@@ -1,0 +1,34 @@
+<body class="container">
+  <div class="row-justify-content-center">
+
+    <div *ngIf="this.login.isLoggedIn == false">
+        <h1>
+          Welcome To Lunchmate
+        </h1>
+
+        <form>
+          <div class="form-group" style="width:50%">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group" style="width:50%">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+        </form>
+
+        <button type="button" class="btn" (click)="submitLogin();">Login</button>
+    </div>
+
+    <div *ngIf="this.login.isLoggedIn == true">
+
+      <nav>
+        <a routerLink="/all-postings">Postings</a>
+        <span>  </span>
+        <a routerLink="/create-posting">Create New Posting</a>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</body>
