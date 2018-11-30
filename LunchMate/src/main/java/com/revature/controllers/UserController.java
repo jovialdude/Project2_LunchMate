@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.*;
 import com.revature.services.*;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/users")
 public class UserController	{
@@ -26,22 +25,25 @@ public class UserController	{
 @Autowired
 UserService userService;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 public List<User> findAllUsers(){
 		return userService.findAllUsers();
 	}
 
+@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/{id}")
 public User findUserById(@PathVariable("id") Integer id) {
 		return userService.findUserById(id);
 	}
 
+@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping
 public void addUser(@RequestBody User u) {
 		userService.addUser(u);
 	}
 
+@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/{id}")
 public void updateUser(@PathVariable("id") Integer id,
 @RequestBody User u)	{
@@ -49,6 +51,7 @@ public void updateUser(@PathVariable("id") Integer id,
 		userService.updateUser(u);
 	}
 
+@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/{id}")
 public boolean deleteUser(@PathVariable Integer id) {
 		User user = new User();
